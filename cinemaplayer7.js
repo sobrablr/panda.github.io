@@ -347,49 +347,6 @@ function cinemaPlayerInit(elem) {
       '        background-position: 50% 50%;' +
       '    }' +
       '' +
-      '    #cinemaplayer-thumbnail {' +
-      '        display: none;' +
-      '        background-position: center;' +
-      '        background-repeat: no-repeat;' +
-      '        background-size: cover;' +
-      '        background-color: ' + d['cinemaplayer']['background']['color'] + ';' +
-      '    }' +
-      '    .cinemaplayer-thumbnail {' +
-      '        position: absolute;' +
-      '        z-index: 1;' +
-      '        width: 100%;' +
-      '        height: 100%;' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-thumbnail span {' +
-      '        background: ' + d['cinemaplayer']['play']['color'] + ';' +
-      '        display: inline-block;' +
-      '        padding: ' + d['cinemaplayer']['play']['padding'] + ';' +
-      '        position: absolute;' +
-      '        border-radius: ' + d['cinemaplayer']['play']['border']['radius'] + ';' +
-      '        opacity: .8;' +
-      '        top: 50%;' +
-      '        left: 50%;' +
-      '        transform: translate(-50%, -50%);' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-thumbnail span:hover {' +
-      '        opacity: 1;' +
-      '        cursor: pointer;' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-thumbnail span:after {' +
-      '        content: "";' +
-      '        display: block;' +
-      '        position: relative;' +
-      '        left: 2px;' +
-      '        width: 0;' +
-      '        height: 0;' +
-      '        opacity: .9;' +
-      '        border-style: solid;' +
-      '        border-width: 10px 0 10px 20px;' +
-      '        border-color: transparent transparent transparent white;' +
-      '    }' +
       '    .simplebar-scrollbar::before {' +
       '        background-color: ' + d['cinemaplayer']['tabs']['scrollbar']['color'] + ';' +
       '    }';
