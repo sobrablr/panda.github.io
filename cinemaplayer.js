@@ -262,6 +262,75 @@ function cinemaPlayerInit(elem) {
       '        background-size: cover;' +
       '    }' +
       '' +
+      '    #cinemaplayer-tabs {' +
+      (d['cinemaplayer']['tabs']['top'] ? 'top: ' + d['cinemaplayer']['tabs']['top'] + ';' : '') +
+      (d['cinemaplayer']['tabs']['right'] ? 'right: ' + d['cinemaplayer']['tabs']['right'] + ';' : '') +
+      (d['cinemaplayer']['tabs']['left'] ? 'left: ' + d['cinemaplayer']['tabs']['left'] + ';' : '') +
+      '        position: absolute;' +
+      '        z-index: 1;' +
+      '    }' +
+      '' +
+      '    #cinemaplayer-tabs>div {' +
+      '        float: left;' +
+      '        position: relative;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-select {' +
+      '        position: relative;' +
+      '        margin-left: 5px;' +
+      '        border-width: ' + d['cinemaplayer']['tabs']['border']['width'] + ';' +
+      '        border-color: ' + d['cinemaplayer']['tabs']['border']['color'] + ';' +
+      '        border-style: ' + d['cinemaplayer']['tabs']['border']['style'] + ';' +
+      '        background: ' + d['cinemaplayer']['tabs']['background'] + ';' +
+      '        border-radius: ' + d['cinemaplayer']['tabs']['border']['radius'] + ';' +
+      '        color: ' + d['cinemaplayer']['tabs']['color'] + ';' +
+      '        width: ' + d['cinemaplayer']['tabs']['width'] + ';' +
+      '        max-width: ' + d['cinemaplayer']['tabs']['width'] + ';' +
+      '        font-size: ' + d['cinemaplayer']['tabs']['font']['size'] + ';' +
+      '        text-shadow: ' + d['cinemaplayer']['tabs']['shadow'] + ';' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-select select {' +
+      '        display: none;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-selected {' +
+      '        background: 0 0;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-selected:after {' +
+      '        position: absolute;' +
+      '        content: "";' +
+      '        top: 14px;' +
+      '        right: 0;' +
+      '        width: 0;' +
+      '        height: 0;' +
+      '        border: 6px solid transparent;' +
+      '        border-color: ' + d['cinemaplayer']['tabs']['arrow']['close']['color'] + ' transparent transparent transparent;' +
+      '        margin-right: 10px;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-selected.select-arrow-active:after {' +
+      '        border-color: transparent transparent ' + d['cinemaplayer']['tabs']['arrow']['open']['color'] + ' transparent;' +
+      '        top: 7px;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-items .cinemaplayer-item-select,' +
+      '    .cinemaplayer-selected {' +
+      '        color: ' + d['cinemaplayer']['tabs']['color'] + ';' +
+      '        padding: 8px;' +
+      '        border: 1px solid transparent;' +
+      '        cursor: pointer;' +
+      '        font-size: 14px;' +
+      '        user-select: none;' +
+      '        text-align: center;' +
+      '        line-height: normal;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-selected {' +
+      '        padding: 8px 20px 8px 8px;' +
+      '    }' +
+      '' +
       '    .cinemaplayer-items {' +
       '        position: absolute;' +
       '        background: 0 0;' +
@@ -273,6 +342,10 @@ function cinemaPlayerInit(elem) {
       '        overflow-y: auto;' +
       '        z-index: 2;' +
       '        margin-top: 5px;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-select-hide {' +
+      '        display: none;' +
       '    }' +
       '' +
       '    .cinemaplayer-items {' +
@@ -295,36 +368,68 @@ function cinemaPlayerInit(elem) {
       '        background-color: ' + d['cinemaplayer']['tabs']['item']['hover']['background'] + ';' +
       '    }' +
       '' +
-      '    #cinemaplayer-loader {' +
-      '     position: relative;' +
-      '     width: 108px;' +
-      '     display: flex;' +
-      '     justify-content: space-between;' +
+      '    .cinemaplayer-selected {' +
+      '        white-space: nowrap;' +
+      '        text-overflow: ellipsis;' +
+      '        overflow: hidden;' +
       '    }' +
-      '    .cinemaplayer-loader::after , .cinemaplayer-loader::before  {' +
-      '       content: '';' +
-      '       display: inline-block;' +
-      '       width: 48px;' +
-      '       height: 48px;' +
-      '       background-color: #FFF;' +
-      '       background-image:  radial-gradient(circle 14px, #0d161b 100%, transparent 0);' +
-      '       background-repeat: no-repeat;' +
-      '       border-radius: 50%;' +
-      '       animation: eyeMove 10s infinite , blink 10s infinite;' +
-      '     }' +
-      '        @keyframes eyeMove {' +
-      '         0%  , 10% {     background-position: 0px 0px}' +
-      '         13%  , 40% {     background-position: -15px 0px}' +
-      '         43%  , 70% {     background-position: 15px 0px}' +
-      '         73%  , 90% {     background-position: 0px 15px}' +
-      '         93%  , 100% {     background-position: 0px 0px}' +
-      '     }' +
-      '       @keyframes blink {
-      '         0%  , 10% , 12% , 20%, 22%, 40%, 42% , 60%, 62%,  70%, 72% , 90%, 92%, 98% , 100%' +
-      '         { height: 48px}' +
-      '         11% , 21% ,41% , 61% , 71% , 91% , 99%' +
-      '         { height: 18px}' +
-      '     }' +
+      '' +
+      '    #cinemaplayer-loader {' +
+      '        z-index: 3;' +
+      '        position: absolute;' +
+      '        left: 0;' +
+      '        top: 0;' +
+      '        width: 100%;' +
+      '        height: 100%;' +
+      '        background-image: url("' + d['cinemaplayer']['loader']['background']['image'] + '");' +
+      '        background-color: ' + d['cinemaplayer']['loader']['background']['color'] + ';' +
+      '        background-repeat: no-repeat;' +
+      '        background-position: 50% 50%;' +
+      '    }' +
+      '' +
+      '    #cinemaplayer-thumbnail {' +
+      '        display: none;' +
+      '        background-position: center;' +
+      '        background-repeat: no-repeat;' +
+      '        background-size: cover;' +
+      '        background-color: ' + d['cinemaplayer']['background']['color'] + ';' +
+      '    }' +
+      '    .cinemaplayer-thumbnail {' +
+      '        position: absolute;' +
+      '        z-index: 1;' +
+      '        width: 100%;' +
+      '        height: 100%;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-thumbnail span {' +
+      '        background: ' + d['cinemaplayer']['play']['color'] + ';' +
+      '        display: inline-block;' +
+      '        padding: ' + d['cinemaplayer']['play']['padding'] + ';' +
+      '        position: absolute;' +
+      '        border-radius: ' + d['cinemaplayer']['play']['border']['radius'] + ';' +
+      '        opacity: .8;' +
+      '        top: 50%;' +
+      '        left: 50%;' +
+      '        transform: translate(-50%, -50%);' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-thumbnail span:hover {' +
+      '        opacity: 1;' +
+      '        cursor: pointer;' +
+      '    }' +
+      '' +
+      '    .cinemaplayer-thumbnail span:after {' +
+      '        content: "";' +
+      '        display: block;' +
+      '        position: relative;' +
+      '        left: 2px;' +
+      '        width: 0;' +
+      '        height: 0;' +
+      '        opacity: .9;' +
+      '        border-style: solid;' +
+      '        border-width: 10px 0 10px 20px;' +
+      '        border-color: transparent transparent transparent white;' +
+      '    }' +
       '    .simplebar-scrollbar::before {' +
       '        background-color: ' + d['cinemaplayer']['tabs']['scrollbar']['color'] + ';' +
       '    }';
