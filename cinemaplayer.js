@@ -262,19 +262,6 @@ function cinemaPlayerInit(elem) {
       '        background-size: cover;' +
       '    }' +
       '' +
-      '    #cinemaplayer-tabs {' +
-      (d['cinemaplayer']['tabs']['top'] ? 'top: ' + d['cinemaplayer']['tabs']['top'] + ';' : '') +
-      (d['cinemaplayer']['tabs']['right'] ? 'right: ' + d['cinemaplayer']['tabs']['right'] + ';' : '') +
-      (d['cinemaplayer']['tabs']['left'] ? 'left: ' + d['cinemaplayer']['tabs']['left'] + ';' : '') +
-      '        position: absolute;' +
-      '        z-index: 1;' +
-      '    }' +
-      '' +
-      '    #cinemaplayer-tabs>div {' +
-      '        float: left;' +
-      '        position: relative;' +
-      '    }' +
-      '' +
       '    .cinemaplayer-items {' +
       '        position: absolute;' +
       '        background: 0 0;' +
