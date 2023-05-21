@@ -275,25 +275,6 @@ function cinemaPlayerInit(elem) {
       '        position: relative;' +
       '    }' +
       '' +
-      '    .cinemaplayer-select {' +
-      '        position: relative;' +
-      '        margin-left: 5px;' +
-      '        border-width: ' + d['cinemaplayer']['tabs']['border']['width'] + ';' +
-      '        border-color: ' + d['cinemaplayer']['tabs']['border']['color'] + ';' +
-      '        border-style: ' + d['cinemaplayer']['tabs']['border']['style'] + ';' +
-      '        background: ' + d['cinemaplayer']['tabs']['background'] + ';' +
-      '        border-radius: ' + d['cinemaplayer']['tabs']['border']['radius'] + ';' +
-      '        color: ' + d['cinemaplayer']['tabs']['color'] + ';' +
-      '        width: ' + d['cinemaplayer']['tabs']['width'] + ';' +
-      '        max-width: ' + d['cinemaplayer']['tabs']['width'] + ';' +
-      '        font-size: ' + d['cinemaplayer']['tabs']['font']['size'] + ';' +
-      '        text-shadow: ' + d['cinemaplayer']['tabs']['shadow'] + ';' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-select select {' +
-      '        display: none;' +
-      '    }' +
-      '' +
       '    .cinemaplayer-items {' +
       '        position: absolute;' +
       '        background: 0 0;' +
@@ -305,10 +286,6 @@ function cinemaPlayerInit(elem) {
       '        overflow-y: auto;' +
       '        z-index: 2;' +
       '        margin-top: 5px;' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-select-hide {' +
-      '        display: none;' +
       '    }' +
       '' +
       '    .cinemaplayer-items {' +
