@@ -177,14 +177,6 @@ function cinemaPlayerInit(elem) {
       "value":"#000"
     },
     {
-      "name":"data-cinemaplayer-select-season",
-      "value":""
-    },
-    {
-      "name":"data-cinemaplayer-select-episode",
-      "value":""
-    },
-    {
       "name":"data-cinemaplayer-sort-season",
       "value":"asc"
     },
@@ -835,35 +827,6 @@ function cinemaPlayerAction(self) {
       thumbnail.style.display = 'none';
     }
     cinemaPlayerCloseAllSelect();
-  }
-}
-
-function cinemaPlayerCloseAllSelect(e) {
-  var x, y, i, xl, yl, arrNo = [];
-  x = document.getElementsByClassName('cinemaplayer-items');
-  y = document.getElementsByClassName('cinemaplayer-selected');
-  xl = x.length;
-  yl = y.length;
-  for (i = 0; i < yl; i++) {
-    if (e && e === y[i]) {
-      arrNo.push(i);
-    } else {
-      y[i].classList.remove('select-arrow-active');
-      if (cinemaPlayerData['cinemaplayer']['tabs']['mobile']['width']) {
-        if (cinemaPlayerData['width'] && cinemaPlayerData['width'] < parseInt(cinemaPlayerData['cinemaplayer']['iframe']['mobile']['width'])) {
-          y[i].style.color = cinemaPlayerData['cinemaplayer']['tabs']['background'];
-          y[i].parentNode.style.width = cinemaPlayerData['cinemaplayer']['tabs']['mobile']['width'];
-        } else {
-          y[i].style.color = cinemaPlayerData['cinemaplayer']['tabs']['color'];
-          y[i].parentNode.style.width = cinemaPlayerData['cinemaplayer']['tabs']['width'];
-        }
-      }
-    }
-  }
-  for (i = 0; i < xl; i++) {
-    if (arrNo.indexOf(i)) {
-      x[i].classList.add('cinemaplayer-select-hide');
-    }
   }
 }
 
