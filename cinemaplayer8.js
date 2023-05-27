@@ -866,29 +866,6 @@ function cinemaPlayerApiFormat(raw) {
           option = selector + 'e' + episode;
           cinemaPlayerApiFormatStructure(cinemaPlayerObj, tab, selector, option, param);
         }
-        if (name) {
-          param = {};
-          param.name = (name + '');
-          if (obj['iframe']) {
-            param.action = obj['iframe'];
-            param.type = 'iframe';
-          }
-          else if (obj['link']) {
-            param.action = obj['link'];
-            param.type = 'link';
-          }
-          else if (obj['youtube']) {
-            param.action = obj['youtube'];
-            param.type = 'youtube';
-          }
-          if (obj['image']) {
-            param.thumbnail = obj['image'];
-          }
-          tab = 'names';
-          selector = 's' + season + 'e' + episode;
-          option = selector + 'n' + cinemaPlayerHashCode(name);
-          cinemaPlayerApiFormatStructure(cinemaPlayerObj, tab, selector, option, param);
-        }
       });
     }
   } catch (e) {
@@ -1520,17 +1497,6 @@ function cinemaPlayerListInit(listContainer) {
       }
     }
   });
-}
-
-function cinemaPlayerHashCode(str) {
-  var hash = 0, i, char;
-  if (str.length === 0) return hash;
-  for (i = 0; i < str.length; i++) {
-    char = str.charCodeAt(i);
-    hash = ((hash<<5)-hash)+char;
-    hash = hash & hash;
-  }
-  return hash;
 }
 
 (function() {
