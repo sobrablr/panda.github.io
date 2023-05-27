@@ -262,52 +262,12 @@ function cinemaPlayerInit(elem) {
       '        background-size: cover;' +
       '    }' +
       '' +
-      '    #cinemaplayer-tabs {' +
-      (d['cinemaplayer']['tabs']['top'] ? 'top: ' + d['cinemaplayer']['tabs']['top'] + ';' : '') +
-      (d['cinemaplayer']['tabs']['right'] ? 'right: ' + d['cinemaplayer']['tabs']['right'] + ';' : '') +
-      (d['cinemaplayer']['tabs']['left'] ? 'left: ' + d['cinemaplayer']['tabs']['left'] + ';' : '') +
-      '        position: absolute;' +
-      '        z-index: 1;' +
-      '    }' +
-      '' +
-      '    #cinemaplayer-tabs>div {' +
-      '        float: left;' +
-      '        position: relative;' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-select {' +
-      '        position: relative;' +
-      '        margin-left: 5px;' +
-      '        border-width: ' + d['cinemaplayer']['tabs']['border']['width'] + ';' +
-      '        border-color: ' + d['cinemaplayer']['tabs']['border']['color'] + ';' +
-      '        border-style: ' + d['cinemaplayer']['tabs']['border']['style'] + ';' +
-      '        background: ' + d['cinemaplayer']['tabs']['background'] + ';' +
-      '        border-radius: ' + d['cinemaplayer']['tabs']['border']['radius'] + ';' +
-      '        color: ' + d['cinemaplayer']['tabs']['color'] + ';' +
-      '        width: ' + d['cinemaplayer']['tabs']['width'] + ';' +
-      '        max-width: ' + d['cinemaplayer']['tabs']['width'] + ';' +
-      '        font-size: ' + d['cinemaplayer']['tabs']['font']['size'] + ';' +
-      '        text-shadow: ' + d['cinemaplayer']['tabs']['shadow'] + ';' +
-      '    }' +
-      '' +
       '    .cinemaplayer-select select {' +
       '        display: none;' +
       '    }' +
       '' +
       '    .cinemaplayer-selected {' +
       '        background: 0 0;' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-selected:after {' +
-      '        position: absolute;' +
-      '        content: "";' +
-      '        top: 14px;' +
-      '        right: 0;' +
-      '        width: 0;' +
-      '        height: 0;' +
-      '        border: 6px solid transparent;' +
-      '        border-color: ' + d['cinemaplayer']['tabs']['arrow']['close']['color'] + ' transparent transparent transparent;' +
-      '        margin-right: 10px;' +
       '    }' +
       '' +
       '    .cinemaplayer-selected.select-arrow-active:after {' +
@@ -387,49 +347,6 @@ function cinemaPlayerInit(elem) {
       '        background-position: 50% 50%;' +
       '    }' +
       '' +
-      '    #cinemaplayer-thumbnail {' +
-      '        display: none;' +
-      '        background-position: center;' +
-      '        background-repeat: no-repeat;' +
-      '        background-size: cover;' +
-      '        background-color: ' + d['cinemaplayer']['background']['color'] + ';' +
-      '    }' +
-      '    .cinemaplayer-thumbnail {' +
-      '        position: absolute;' +
-      '        z-index: 1;' +
-      '        width: 100%;' +
-      '        height: 100%;' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-thumbnail span {' +
-      '        background: ' + d['cinemaplayer']['play']['color'] + ';' +
-      '        display: inline-block;' +
-      '        padding: ' + d['cinemaplayer']['play']['padding'] + ';' +
-      '        position: absolute;' +
-      '        border-radius: ' + d['cinemaplayer']['play']['border']['radius'] + ';' +
-      '        opacity: .8;' +
-      '        top: 50%;' +
-      '        left: 50%;' +
-      '        transform: translate(-50%, -50%);' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-thumbnail span:hover {' +
-      '        opacity: 1;' +
-      '        cursor: pointer;' +
-      '    }' +
-      '' +
-      '    .cinemaplayer-thumbnail span:after {' +
-      '        content: "";' +
-      '        display: block;' +
-      '        position: relative;' +
-      '        left: 2px;' +
-      '        width: 0;' +
-      '        height: 0;' +
-      '        opacity: .9;' +
-      '        border-style: solid;' +
-      '        border-width: 10px 0 10px 20px;' +
-      '        border-color: transparent transparent transparent white;' +
-      '    }' +
       '    .simplebar-scrollbar::before {' +
       '        background-color: ' + d['cinemaplayer']['tabs']['scrollbar']['color'] + ';' +
       '    }';
