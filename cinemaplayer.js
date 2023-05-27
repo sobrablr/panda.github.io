@@ -1218,6 +1218,7 @@ function cinemaPlayerSliderInit(sliderContainer) {
             '.cinemaplayer-slider-container .cinemaplayer-slider-item img {' +
             '  object-fit: cover;' +
             '  width: 100%;' +
+            '  border-radius:10px 10px 10px 10px;' +
             '}' +
             '' +
             '.cinemaplayer-slider-prev,' +
