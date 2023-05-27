@@ -1213,22 +1213,11 @@ function cinemaPlayerSliderInit(sliderContainer) {
             '  max-width: 100%;' +
             '  position: relative;' +
             '  margin: auto;' +
-            '  --n: 1;' +
-            '  display: flex;' +
-	          '  align-items: center;' +
-	          '  overflow-y: hidden;' +
-	          '  width: 100%;' +
-	          '  width: calc(var(--n)*100%);' +
-	          '  height: 50vw; max-height: 100vh;' +
-	          '  transform: translate(calc(var(--i)/var(--n)*-100%));' +
             '}' +
             '' +
             '.cinemaplayer-slider-container .cinemaplayer-slider-item img {' +
             '  object-fit: cover;' +
             '  width: 100%;' +
-            '  width: calc(100%/var(--n));' +
-		        '  user-select: none;' +
-		        '  pointer-events: none' +
             '}' +
             '' +
             '.cinemaplayer-slider-prev,' +
