@@ -1213,11 +1213,21 @@ function cinemaPlayerSliderInit(sliderContainer) {
             '  max-width: 100%;' +
             '  position: relative;' +
             '  margin: auto;' +
+            '  overflow-x: auto;' +
+            '  overflow-y: hidden;' +
+            '  scroll-snap-coordinate: 0 0;' +
+            '  scroll-snap-points-x: repeat(100%);' +
+            '  scroll-snap-type: x mandatory;' +
+            '  flex: 1;' +
+            '  display:flex;' +
+            '  -webkit-overflow-scrolling: touch;' +
             '}' +
             '' +
             '.cinemaplayer-slider-container .cinemaplayer-slider-item img {' +
             '  object-fit: cover;' +
             '  width: 100%;' +
+            '  flex:0 0 100%;' +
+            '  scroll-snap-align: start;' +
             '}' +
             '' +
             '.cinemaplayer-slider-prev,' +
