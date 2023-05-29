@@ -377,6 +377,7 @@ function cinemaPlayerInit(elem) {
 
   i = document.createElement('iframe');
   i.setAttribute('id', 'cinemaplayer-iframe');
+  i.setAttribute('title', 'Плеер');
   i.setAttribute('frameborder', '0');
   i.setAttribute('allowfullscreen', 'allowfullscreen');
   i.setAttribute('webkitallowfullscreen', 'webkitallowfullscreen');
