@@ -368,13 +368,6 @@ function cinemaPlayerInit(elem) {
   cinemaplayer.innerHTML = '';
   cinemaplayer.appendChild(l);
 
-  t = document.createElement('div');
-  t.setAttribute('id', 'cinemaplayer-thumbnail');
-  t.setAttribute('class', 'cinemaplayer-thumbnail');
-  var t_play = document.createElement('span');
-  t.appendChild(t_play);
-  cinemaplayer.appendChild(t);
-
   i = document.createElement('iframe');
   i.setAttribute('id', 'cinemaplayer-iframe');
   i.setAttribute('title', 'Плеер');
@@ -611,7 +604,67 @@ function cinemaPlayerTab(selected) {
       });
     });
   });
-  
+  var tabs_element = document.createElement('div');
+  tabs_element.setAttribute('id', 'cinemaplayer-tabs');
+  tabs.forEach(function(tab) {
+    var tab_element = document.createElement('div');
+    tab_element.setAttribute('id', 'api-tab-' + tab);
+    var selectors = cinemaPlayerKeys(cinemaPlayerData.api.tab[tab].selectors);
+    selectors.forEach(function(selector) {
+      if (
+          cinemaPlayerData.api.tab[tab] && cinemaPlayerData.api.tab[tab].active &&
+          cinemaPlayerData.api.tab[tab].active.toLowerCase() !== selector
+      ) {
+        return;
+      }
+      var custom_select = document.createElement('div');
+      custom_select.setAttribute('class', 'cinemaplayer-select');
+      var selector_element = document.createElement('select');
+      selector_element.setAttribute('id', 'api-tab-' + tab + '-selector-' + selector);
+      var options = cinemaPlayerKeys(cinemaPlayerData.api.tab[tab].selector[selector].options);
+      options.forEach(function(option) {
+        var opt = cinemaPlayerData.api.tab[tab].selector[selector].option || {};
+        if (!opt[option]) opt[option] = {};
+        if (!opt[option].action) opt[option].action = '';
+        if (!opt[option].type) opt[option].type = '';
+        if (!opt[option].thumbnail) opt[option].thumbnail = '';
+        if (!opt[option].name) opt[option].name = option.toUpperCase();
+        if (!cinemaPlayerData.api.tab[tab].selected) cinemaPlayerData.api.tab[tab].selected = option;
+        var option_element = document.createElement('option');
+        option_element.setAttribute('id', 'api-tab-' + tab + '-selector-' + selector + '-option-' + option);
+        option_element.setAttribute('data-action', opt[option].action);
+        option_element.setAttribute('data-type', opt[option].type);
+        option_element.setAttribute('data-thumbnail', opt[option].thumbnail);
+        option_element.setAttribute('data-tab', tab);
+        option_element.setAttribute('data-active', selector);
+        option_element.setAttribute('data-selected', option);
+        option_element.appendChild(document.createTextNode(opt[option].name));
+        if (
+            cinemaPlayerData.api.tab[tab] && cinemaPlayerData.api.tab[tab].active &&
+            cinemaPlayerData.api.tab[tab].active.toLowerCase() === selector &&
+            cinemaPlayerData.api.tab[tab] && cinemaPlayerData.api.tab[tab].selected &&
+            cinemaPlayerData.api.tab[tab].selected.toLowerCase() === option
+        ) {
+          option_element.setAttribute('selected', 'selected');
+          cinemaPlayerAction(opt[option]);
+        }
+        if (opt[option].name.toUpperCase() !== 'HIDE') {
+          selector_element.appendChild(option_element);
+        }
+      });
+      selector_element.addEventListener('change', cinemaPlayerEvent, false);
+      custom_select.appendChild(selector_element);
+      tab_element.appendChild(custom_select);
+    });
+    tabs_element.appendChild(tab_element);
+  });
+  var elem = document.getElementById('cinemaplayer-tabs');
+  if (elem) elem.parentNode.removeChild(elem);
+  cinemaplayer.appendChild(tabs_element);
+  cinemaPlayerSelect();
+  document.addEventListener('click', cinemaPlayerCloseAllSelect);
+}
+
 function cinemaPlayerApiFormat(raw) {
   var cinemaPlayerObj = {};
   cinemaPlayerObj.api = {};
