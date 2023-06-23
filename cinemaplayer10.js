@@ -368,6 +368,11 @@ function cinemaPlayerInit(elem) {
   cinemaplayer.innerHTML = '';
   cinemaplayer.appendChild(l);
 
+  t = document.createElement('div');
+  var t_play = document.createElement('span');
+  t.appendChild(t_play);
+  cinemaplayer.appendChild(t);
+
   i = document.createElement('iframe');
   i.setAttribute('id', 'cinemaplayer-iframe');
   i.setAttribute('title', 'Плеер');
