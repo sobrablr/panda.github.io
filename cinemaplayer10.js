@@ -611,6 +611,7 @@ function cinemaPlayerTab(selected) {
       });
     });
   });
+  
 function cinemaPlayerApiFormat(raw) {
   var cinemaPlayerObj = {};
   cinemaPlayerObj.api = {};
