@@ -40,80 +40,80 @@ function cinemaPlayerInit(elem) {
     body_head.appendChild(body_style);
   }
 
-  window.addEventListener('orientationchange', cinemaPlayerOrientation, false);
-  window.addEventListener('resize', cinemaPlayerOrientation, false);
+  window.addEventListener('orientationchange', cinemaOrientation, false);
+  window.addEventListener('resize', cinemaOrientation, false);
 
-  cinemaPlayerAttr([
+  cinemaAttr([
     {
-      "name":"data-cinemaplayer-id",
-      "value":"cinemaplayer"
+      "name":"data-cinema-id",
+      "value":"cinema"
     },
     {
-      "name":"data-cinemaplayer-loader-background-color",
+      "name":"data-cinema-loader-background-color",
       "value":"#1a2035"
     },
     {
-      "name":"data-cinemaplayer-loader-background-image",
+      "name":"data-cinema-loader-background-image",
       "value":"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBzdHlsZT0ibWFyZ2luOiBhdXRvOyBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDApIG5vbmUgcmVwZWF0IHNjcm9sbCAwJSAwJTsgZGlzcGxheTogYmxvY2s7IHNoYXBlLXJlbmRlcmluZzogYXV0bzsiIHdpZHRoPSIyMDBweCIgaGVpZ2h0PSIyMDBweCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIj4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAgNTApIj4KICA8ZyB0cmFuc2Zvcm09InNjYWxlKDAuOCkiPgogICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUwIC01MCkiPgogICAgICA8Zz4KICAgICAgICA8YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIHR5cGU9InRyYW5zbGF0ZSIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGR1cj0iMXMiIHZhbHVlcz0iLTIwIC0yMDsyMCAtMjA7MCAyMDstMjAgLTIwIiBrZXlUaW1lcz0iMDswLjMzOzAuNjY7MSI+PC9hbmltYXRlVHJhbnNmb3JtPgogICAgICAgIDxwYXRoIGZpbGw9IiMzMDcxN2QiIGQ9Ik00NC4xOSAyNi4xNThjLTQuODE3IDAtOS4zNDUgMS44NzYtMTIuNzUxIDUuMjgyYy0zLjQwNiAzLjQwNi01LjI4MiA3LjkzNC01LjI4MiAxMi43NTEgYzAgNC44MTcgMS44NzYgOS4zNDUgNS4yODIgMTIuNzUxYzMuNDA2IDMuNDA2IDcuOTM0IDUuMjgyIDEyLjc1MSA1LjI4MnM5LjM0NS0xLjg3NiAxMi43NTEtNS4yODIgYzMuNDA2LTMuNDA2IDUuMjgyLTcuOTM0IDUuMjgyLTEyLjc1MWMwLTQuODE3LTEuODc2LTkuMzQ1LTUuMjgyLTEyLjc1MUM1My41MzYgMjguMDMzIDQ5LjAwNyAyNi4xNTggNDQuMTkgMjYuMTU4eiI+PC9wYXRoPgogICAgICAgIDxwYXRoIGZpbGw9IiMwODQ4NTUiIGQ9Ik03OC43MTIgNzIuNDkyTDY3LjU5MyA2MS4zNzNsLTMuNDc1LTMuNDc1YzEuNjIxLTIuMzUyIDIuNzc5LTQuOTI2IDMuNDc1LTcuNTk2YzEuMDQ0LTQuMDA4IDEuMDQ0LTguMjMgMC0xMi4yMzggYy0xLjA0OC00LjAyMi0zLjE0Ni03LjgyNy02LjI5Ny0xMC45NzlDNTYuNTcyIDIyLjM2MiA1MC4zODEgMjAgNDQuMTkgMjBDMzggMjAgMzEuODA5IDIyLjM2MiAyNy4wODUgMjcuMDg1IGMtOS40NDcgOS40NDctOS40NDcgMjQuNzYzIDAgMzQuMjFDMzEuODA5IDY2LjAxOSAzOCA2OC4zODEgNDQuMTkgNjguMzgxYzQuNzk4IDAgOS41OTMtMS40MjUgMTMuNzA4LTQuMjYybDkuNjk1IDkuNjk1IGw0Ljg5OSA0Ljg5OUM3My4zNTEgNzkuNTcxIDc0LjQ3NiA4MCA3NS42MDIgODBzMi4yNTEtMC40MjkgMy4xMS0xLjI4OEM4MC40MjkgNzYuOTk0IDgwLjQyOSA3NC4yMDkgNzguNzEyIDcyLjQ5MnogTTU2Ljk0MiA1Ni45NDIgYy0zLjQwNiAzLjQwNi03LjkzNCA1LjI4Mi0xMi43NTEgNS4yODJzLTkuMzQ1LTEuODc2LTEyLjc1MS01LjI4MmMtMy40MDYtMy40MDYtNS4yODItNy45MzQtNS4yODItMTIuNzUxIGMwLTQuODE3IDEuODc2LTkuMzQ1IDUuMjgyLTEyLjc1MWMzLjQwNi0zLjQwNiA3LjkzNC01LjI4MiAxMi43NTEtNS4yODJjNC44MTcgMCA5LjM0NSAxLjg3NiAxMi43NTEgNS4yODIgYzMuNDA2IDMuNDA2IDUuMjgyIDcuOTM0IDUuMjgyIDEyLjc1MUM2Mi4yMjMgNDkuMDA3IDYwLjM0NyA1My41MzYgNTYuOTQyIDU2Ljk0MnoiPjwvcGF0aD4KICAgICAgPC9nPgogICAgPC9nPgogIDwvZz4KPC9nPgo8IS0tIFtsZGlvXSBnZW5lcmF0ZWQgYnkgaHR0cHM6Ly9sb2FkaW5nLmlvLyAtLT48L3N2Zz4="
     },
     {
-      "name":"data-cinemaplayer-loader-timeout",
+      "name":"data-cinema-loader-timeout",
       "value":"0"
     },
     {
-      "name":"data-cinemaplayer-loader-display",
+      "name":"data-cinema-loader-display",
       "value":"block"
     },
     {
-      "name":"data-cinemaplayer-play-color",
+      "name":"data-cinema-play-color",
       "value":"#1a2035"
     },
     {
-      "name":"data-cinemaplayer-play-border-radius",
+      "name":"data-cinema-play-border-radius",
       "value":"10px"
     },
     {
-      "name":"data-cinemaplayer-play-padding",
+      "name":"data-cinema-play-padding",
       "value":"25px 50px"
     },
     {
-      "name":"data-cinemaplayer-tabs-unique",
-      "value":((window && window.location && window.location.pathname) || "") + cinemaPlayerData.id
+      "name":"data-cinema-tabs-unique",
+      "value":((window && window.location && window.location.pathname) || "") + cinemaData.id
     },
     {
-      "name":"data-cinemaplayer-tabs-google-font",
+      "name":"data-cinema-tabs-google-font",
       "value":"Play"
     },
     {
-      "name":"data-cinemaplayer-tabs-border-width",
+      "name":"data-cinema-tabs-border-width",
       "value":"0"
     },
     {
-      "name":"data-cinemaplayer-tabs-border-color",
+      "name":"data-cinema-tabs-border-color",
       "value":"#1a2035"
     },
     {
-      "name":"data-cinemaplayer-tabs-border-style",
+      "name":"data-cinema-tabs-border-style",
       "value":"dotted"
     },
     {
-      "name":"data-cinemaplayer-tabs-event",
+      "name":"data-cinema-tabs-event",
       "value":"click"
     },
     {
-      "name":"data-cinemaplayer-tabs-top",
+      "name":"data-cinema-tabs-top",
       "value":"15px"
     },
     {
-      "name":"data-cinemaplayer-tabs-right",
+      "name":"data-cinema-tabs-right",
       "value":"15px"
     },
     {
-      "name":"data-cinemaplayer-tabs-left",
+      "name":"data-cinema-tabs-left",
       "value":""
     },
     {
-      "name":"data-cinemaplayer-tabs-color",
+      "name":"data-cinema-tabs-color",
       "value":"#FFF"
     },
     {
@@ -181,7 +181,7 @@ function cinemaPlayerInit(elem) {
       "value":""
     },
     {
-      "name":"data--episode",
+      "name":"data-cinemaplayer-select-episode",
       "value":""
     },
     {
@@ -262,7 +262,7 @@ function cinemaPlayerInit(elem) {
       '        background-size: cover;' +
       '    }' +
       '' +
-      '    . select {' +
+      '    .cinemaplayer-select select {' +
       '        display: none;' +
       '    }' +
       '' +
@@ -332,6 +332,7 @@ function cinemaPlayerInit(elem) {
       '        white-space: nowrap;' +
       '        text-overflow: ellipsis;' +
       '        overflow: hidden;' +
+      '        display: none;' +
       '    }' +
       '' +
       '    #cinemaplayer-loader {' +
@@ -501,6 +502,175 @@ function cinemaPlayerInit(elem) {
       }, parseInt(d['cinemaplayer']['loader']['timeout']||'0')*1000);
     }
   }
+}
+
+function cinemaPlayerTab(selected) {
+  var cinemaplayer = document.getElementById(cinemaPlayerData.id);
+  if (!cinemaPlayerData.api) return;
+  if (!cinemaPlayerData.api.tab) return;
+  if (!cinemaPlayerData.api.tabs) {
+    cinemaPlayerData.api.tabs = Object.keys(cinemaPlayerData.api.tab).filter(function(item, pos, self) {
+      return self.indexOf(item) === pos;
+    }).sort(function(a, b) {
+      return Object.keys(cinemaPlayerData.api.tab[a].selector).length > Object.keys(cinemaPlayerData.api.tab[b].selector).length ? 1 : -1;
+    });
+  }
+  var prev_selector = '';
+  var next_selector = '';
+  var tabs = cinemaPlayerKeys(cinemaPlayerData.api.tabs);
+  if (selected && selected.tab && selected.active && selected.selected) {
+    if (cinemaPlayerSave && cinemaPlayerData['cinemaplayer']['tabs']['unique']) {
+      if (cinemaPlayerData && cinemaPlayerData.api && cinemaPlayerData.api.tab && cinemaPlayerData.api.tab[selected.tab] && cinemaPlayerData.api.tab[selected.tab].selector && cinemaPlayerData.api.tab[selected.tab].selector[selected.active] && cinemaPlayerData.api.tab[selected.tab].selector[selected.active].option && typeof cinemaPlayerData.api.tab[selected.tab].selector[selected.active].option === 'object' && Object.keys(cinemaPlayerData.api.tab[selected.tab].selector[selected.active].option).length >= 2) {
+        if (!(selected.tab === 'names' && /s[0-9]+e[0-9]+/i.test(selected.active))) {
+          cinemaPlayerSave.setItem(cinemaPlayerData['cinemaplayer']['tabs']['unique'], JSON.stringify(selected));
+        }
+      }
+    }
+    var t = false;
+    tabs.forEach(function(tab) {
+      if (selected.tab === tab) {
+        t = true;
+      }
+      if (t && cinemaPlayerData.api.tab[tab]) {
+        delete cinemaPlayerData.api.tab[tab].active;
+        delete cinemaPlayerData.api.tab[tab].selected;
+      }
+    });
+    if (
+        cinemaPlayerData.api.tab[selected.tab] &&
+        cinemaPlayerData.api.tab[selected.tab].selector &&
+        cinemaPlayerData.api.tab[selected.tab].selector[selected.active] &&
+        cinemaPlayerData.api.tab[selected.tab].selector[selected.active].option &&
+        cinemaPlayerData.api.tab[selected.tab].selector[selected.active].option[selected.selected]
+    ) {
+      cinemaPlayerData.api.tab[selected.tab].active = selected.active;
+      cinemaPlayerData.api.tab[selected.tab].selected = selected.selected;
+    }
+  }
+  tabs.forEach(function(tab) {
+    if (
+        !cinemaPlayerData.api.tab[tab] ||
+        !cinemaPlayerData.api.tab[tab].selector
+    ) {
+      return;
+    }
+    if (cinemaPlayerData.api.tab[tab].selected) {
+      next_selector = cinemaPlayerData.api.tab[tab].selected.toLowerCase();
+    }
+    delete cinemaPlayerData.api.tab[tab].active;
+    delete cinemaPlayerData.api.tab[tab].selected;
+    if (
+        next_selector
+    ) {
+      if (
+          cinemaPlayerData.api.tab[tab].selector[next_selector] &&
+          cinemaPlayerData.api.tab[tab].selector[next_selector].options
+      ) {
+        var options = cinemaPlayerKeys(cinemaPlayerData.api.tab[tab].selector[next_selector].options);
+        next_selector = options[0];
+      }
+      cinemaPlayerData.api.tab[tab].selected = next_selector.toLowerCase();
+    }
+  });
+  tabs.slice().reverse().forEach(function(tab) {
+    if (
+        !cinemaPlayerData.api.tab[tab] ||
+        !cinemaPlayerData.api.tab[tab].selector
+    ) {
+      return;
+    } else if (!cinemaPlayerData.api.tab[tab].selectors) {
+      cinemaPlayerData.api.tab[tab].selectors = Object.keys(cinemaPlayerData.api.tab[tab].selector).filter(function(item, pos, self) {
+        return self.indexOf(item) === pos;
+      });
+    }
+    var rev_selectors = cinemaPlayerKeys(cinemaPlayerData.api.tab[tab].selectors).sort();
+    rev_selectors.forEach(function(selector) {
+      if (
+          !cinemaPlayerData.api.tab[tab].selector[selector] ||
+          !cinemaPlayerData.api.tab[tab].selector[selector].options
+      ) {
+        return;
+      }
+      var options = tab === 'names'
+          ? cinemaPlayerKeys(cinemaPlayerData.api.tab[tab].selector[selector].options)
+          : cinemaPlayerKeys(cinemaPlayerData.api.tab[tab].selector[selector].options).sort();
+      options.forEach(function(option) {
+        if (!cinemaPlayerData.api.tab[tab].selected) {
+          cinemaPlayerData.api.tab[tab].selected = prev_selector || option;
+          if (!cinemaPlayerData.api.tab[tab].active) {
+            cinemaPlayerData.api.tab[tab].active = selector;
+          }
+        }
+        if (cinemaPlayerData.api.tab[tab].selected.toLowerCase() === option) {
+          if (!cinemaPlayerData.api.tab[tab].active) {
+            cinemaPlayerData.api.tab[tab].active = selector;
+          }
+          if (cinemaPlayerData.api.tab[tab].active.toLowerCase() === selector) {
+            prev_selector = selector;
+          }
+        }
+      });
+    });
+  });
+  var tabs_element = document.createElement('div');
+  tabs_element.setAttribute('id', 'cinemaplayer-tabs');
+  tabs.forEach(function(tab) {
+    var tab_element = document.createElement('div');
+    tab_element.setAttribute('id', 'api-tab-' + tab);
+    var selectors = cinemaPlayerKeys(cinemaPlayerData.api.tab[tab].selectors);
+    selectors.forEach(function(selector) {
+      if (
+          cinemaPlayerData.api.tab[tab] && cinemaPlayerData.api.tab[tab].active &&
+          cinemaPlayerData.api.tab[tab].active.toLowerCase() !== selector
+      ) {
+        return;
+      }
+      var custom_select = document.createElement('div');
+      custom_select.setAttribute('class', 'cinemaplayer-select');
+      var selector_element = document.createElement('select');
+      selector_element.setAttribute('id', 'api-tab-' + tab + '-selector-' + selector);
+      var options = cinemaPlayerKeys(cinemaPlayerData.api.tab[tab].selector[selector].options);
+      options.forEach(function(option) {
+        var opt = cinemaPlayerData.api.tab[tab].selector[selector].option || {};
+        if (!opt[option]) opt[option] = {};
+        if (!opt[option].action) opt[option].action = '';
+        if (!opt[option].type) opt[option].type = '';
+        if (!opt[option].thumbnail) opt[option].thumbnail = '';
+        if (!opt[option].name) opt[option].name = option.toUpperCase();
+        if (!cinemaPlayerData.api.tab[tab].selected) cinemaPlayerData.api.tab[tab].selected = option;
+        var option_element = document.createElement('option');
+        option_element.setAttribute('id', 'api-tab-' + tab + '-selector-' + selector + '-option-' + option);
+        option_element.setAttribute('data-action', opt[option].action);
+        option_element.setAttribute('data-type', opt[option].type);
+        option_element.setAttribute('data-thumbnail', opt[option].thumbnail);
+        option_element.setAttribute('data-tab', tab);
+        option_element.setAttribute('data-active', selector);
+        option_element.setAttribute('data-selected', option);
+        option_element.appendChild(document.createTextNode(opt[option].name));
+        if (
+            cinemaPlayerData.api.tab[tab] && cinemaPlayerData.api.tab[tab].active &&
+            cinemaPlayerData.api.tab[tab].active.toLowerCase() === selector &&
+            cinemaPlayerData.api.tab[tab] && cinemaPlayerData.api.tab[tab].selected &&
+            cinemaPlayerData.api.tab[tab].selected.toLowerCase() === option
+        ) {
+          option_element.setAttribute('selected', 'selected');
+          cinemaPlayerAction(opt[option]);
+        }
+        if (opt[option].name.toUpperCase() !== 'HIDE') {
+          selector_element.appendChild(option_element);
+        }
+      });
+      selector_element.addEventListener('change', cinemaPlayerEvent, false);
+      custom_select.appendChild(selector_element);
+      tab_element.appendChild(custom_select);
+    });
+    tabs_element.appendChild(tab_element);
+  });
+  var elem = document.getElementById('cinemaplayer-tabs');
+  if (elem) elem.parentNode.removeChild(elem);
+  cinemaplayer.appendChild(tabs_element);
+  cinemaPlayerSelect();
+  document.addEventListener('click', cinemaPlayerCloseAllSelect);
 }
 
 function cinemaPlayerApiFormat(raw) {
