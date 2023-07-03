@@ -332,7 +332,7 @@ function cinemaPlayerInit(elem) {
       '        white-space: nowrap;' +
       '        text-overflow: ellipsis;' +
       '        overflow: hidden;' +
-      '        display: none;' +
+      '        display: block;' +
       '    }' +
       '' +
       '    #cinemaplayer-loader {' +
